@@ -46,6 +46,18 @@ export default function InteractiveBackground() {
         }}
       ></div>
 
+      {/* Massive Faded SD Logo */}
+      <div 
+        className="absolute inset-0 flex items-center justify-center opacity-[0.03] select-none transition-transform duration-700 ease-out"
+        style={{
+          transform: `translate(${mousePosition.x * -20}px, ${mousePosition.y * -20}px)`
+        }}
+      >
+        <h1 className="text-[40vw] font-headline font-black text-slate-900 tracking-tighter leading-none">
+          SD
+        </h1>
+      </div>
+
       {/* Forensic Grid Pattern */}
       <div 
         className="absolute inset-0 opacity-[0.03]"
