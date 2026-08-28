@@ -134,6 +134,18 @@ export default function AdminCommandCenter({ onLogout }) {
             )}
           </div>
 
+          {/* Document Preview for Admin */}
+          {selectedCase.preview && (
+            <div className="bg-[#131313] p-4 rounded-xl border border-white/10 flex flex-col items-center mb-4">
+              <h4 className="text-xs text-[#00E5FF] font-mono font-bold mb-3 self-start">Document Visual Evidence:</h4>
+              <img 
+                src={selectedCase.preview} 
+                alt="Document Preview" 
+                className="max-h-[500px] max-w-full object-contain rounded-lg border border-white/5 shadow-xl"
+              />
+            </div>
+          )}
+
           {/* Admin Note Input */}
           <div className="flex items-center space-x-3 text-xs font-mono">
             <span className="text-gray-400 whitespace-nowrap">Admin Audit Log Note:</span>
