@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #131313;
+    color: #e5e2e1;
+  }
+}
+
+/* Custom Glassmorphism & Cyber Utility Classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(26, 28, 30, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 229, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card-hover:hover {
+  border-color: rgba(151, 215, 0, 0.4);
+  box-shadow: 0 0 25px rgba(151, 215, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.cyber-border {
+  position: relative;
+}
+.cyber-border::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #00E5FF;
+  border-right: 2px solid #00E5FF;
+}
+
+.scan-laser {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00E5FF, #97d700, #00E5FF, transparent);
+  box-shadow: 0 0 15px #00E5FF, 0 0 30px #97d700;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0e0e0e;
+}
+::-webkit-scrollbar-thumb {
+  background: #353534;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #97d700;
+}

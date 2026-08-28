@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+.DS_Store
+.agents/
+skills-lock.json
+stitch_screens/
