@@ -110,6 +110,12 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
 
     setScanResult(savedRecord);
     setIsScanning(false);
+    
+    // Trigger popup notification
+    if (savedRecord) {
+      setNotificationMessage(`✨ AI Evaluation Complete! Document '${file.name}' successfully scanned. Ticket ID: ${savedRecord.id}`);
+      setTimeout(() => setNotificationMessage(null), 10000);
+    }
   };
 
   const handleSearchTrackTicket = async (e) => {

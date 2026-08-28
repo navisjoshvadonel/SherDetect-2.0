@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://lewhkuyjtksxuysvhtcm.supabase.co';
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'dummy_key_replace_me';
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://ieeruyttmratjqrmyixz.supabase.co';
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImllZXJ1eXR0bXJhdGpxcm15aXh6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc5MDAzNzksImV4cCI6MjEwMzQ3NjM3OX0.P1CREHddp35xyoGGQ4KuHpSRCCMs5iW6eYqV7qQXoqw';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const ADMIN_SESSION_KEY = 'sherdetect_admin_session_v2';
