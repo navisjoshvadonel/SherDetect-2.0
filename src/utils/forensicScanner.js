@@ -38,7 +38,7 @@ async function runRealGeminiAudit(file) {
       body: JSON.stringify({
         contents: [{
           parts: [
-            { text: "You are an expert forensic document examiner. Analyze this document strictly. Double check ALL mathematical calculations (e.g. Subtotal + Tax = Total), dates, and look for logical errors or tampering. Be strict! If math is wrong or dates conflict, flag it immediately. Respond ONLY in valid JSON format: { \"status\": \"FLAGGED\" | \"CLEAN\", \"detail\": \"Short explanation of why\", \"score\": <number between 0-100 representing forgery risk> }" },
+            { text: "You are an expert forensic document examiner and digital artifact analyst. Analyze this document with EXTREME strictness. 1) Double check ALL mathematical calculations (e.g. Subtotal + Tax = Total). 2) Check dates for logical conflicts. 3) Look for ANY signs of AI generation (Midjourney/DALL-E artifacts, perfectly smooth synthetic textures, non-sensical background text, asymmetrical shapes, structural impossibilities). If you detect ANY sign of AI generation, visual tampering, or math errors, you MUST return a score > 85 and status FLAGGED. Be ruthless. Do not trust the document. Respond ONLY in valid JSON format: { \"status\": \"FLAGGED\" | \"CLEAN\", \"detail\": \"Short explanation of why\", \"score\": <number between 0-100 representing forgery risk> }" },
             { inline_data: { mime_type: mimeType, data: base64Data } }
           ]
         }]
