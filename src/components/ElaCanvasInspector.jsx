@@ -45,14 +45,14 @@ export default function ElaCanvasInspector({ imageSrc, isAnalyzing }) {
   };
 
   return (
-    <div className="bg-[#1c1b1b] rounded-2xl border-2.5 border-[#00E5FF]/40 shadow-neo p-4 space-y-4 relative">
+    <div className="bg-white rounded-2xl border-2.5 border-blue-300 shadow-sm p-4 space-y-4 relative">
       {/* TOP TOOLBAR & LAYER PICKER */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#131313] p-2 rounded-xl border border-white/10">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-slate-50 p-2 rounded-xl border border-slate-200">
         <div className="flex items-center space-x-1.5 overflow-x-auto w-full sm:w-auto text-xs font-mono">
           <button
             onClick={() => setActiveLayer('original')}
             className={`px-3 py-1.5 rounded-lg font-bold transition flex items-center space-x-1 ${
-              activeLayer === 'original' ? 'bg-[#00E5FF] text-black shadow' : 'text-gray-300 hover:bg-white/5'
+              activeLayer === 'original' ? 'bg-[#00E5FF] text-black shadow' : 'text-slate-600 hover:bg-slate-100'
             }`}
           >
             <Eye className="w-3.5 h-3.5" />
@@ -62,7 +62,7 @@ export default function ElaCanvasInspector({ imageSrc, isAnalyzing }) {
           <button
             onClick={() => setActiveLayer('ela')}
             className={`px-3 py-1.5 rounded-lg font-bold transition flex items-center space-x-1 ${
-              activeLayer === 'ela' ? 'bg-red-500 text-white shadow' : 'text-gray-300 hover:bg-white/5'
+              activeLayer === 'ela' ? 'bg-red-500 text-slate-900 shadow' : 'text-slate-600 hover:bg-slate-100'
             }`}
           >
             <Zap className="w-3.5 h-3.5 text-yellow-300" />
@@ -72,7 +72,7 @@ export default function ElaCanvasInspector({ imageSrc, isAnalyzing }) {
           <button
             onClick={() => setActiveLayer('laplacian')}
             className={`px-3 py-1.5 rounded-lg font-bold transition flex items-center space-x-1 ${
-              activeLayer === 'laplacian' ? 'bg-[#97d700] text-black shadow' : 'text-gray-300 hover:bg-white/5'
+              activeLayer === 'laplacian' ? 'bg-[#97d700] text-black shadow' : 'text-slate-600 hover:bg-slate-100'
             }`}
           >
             <Shield className="w-3.5 h-3.5" />
@@ -82,7 +82,7 @@ export default function ElaCanvasInspector({ imageSrc, isAnalyzing }) {
           <button
             onClick={() => setActiveLayer('pii')}
             className={`px-3 py-1.5 rounded-lg font-bold transition flex items-center space-x-1 ${
-              activeLayer === 'pii' ? 'bg-purple-600 text-white shadow' : 'text-gray-300 hover:bg-white/5'
+              activeLayer === 'pii' ? 'bg-purple-600 text-slate-900 shadow' : 'text-slate-600 hover:bg-slate-100'
             }`}
           >
             <Lock className="w-3.5 h-3.5" />
@@ -91,23 +91,23 @@ export default function ElaCanvasInspector({ imageSrc, isAnalyzing }) {
         </div>
 
         {/* Zoom Controls */}
-        <div className="flex items-center space-x-2 text-xs font-mono text-gray-300">
+        <div className="flex items-center space-x-2 text-xs font-mono text-slate-600">
           <button 
             onClick={() => setZoomLevel(z => Math.max(0.8, z - 0.2))}
-            className="p-1.5 bg-[#201f1f] hover:bg-[#2a2a2a] rounded-lg border border-white/10"
+            className="p-1.5 bg-slate-100 hover:bg-[#2a2a2a] rounded-lg border border-slate-200"
           >
             <ZoomOut className="w-3.5 h-3.5" />
           </button>
           <span>{(zoomLevel * 100).toFixed(0)}%</span>
           <button 
             onClick={() => setZoomLevel(z => Math.min(2.5, z + 0.2))}
-            className="p-1.5 bg-[#201f1f] hover:bg-[#2a2a2a] rounded-lg border border-white/10"
+            className="p-1.5 bg-slate-100 hover:bg-[#2a2a2a] rounded-lg border border-slate-200"
           >
             <ZoomIn className="w-3.5 h-3.5" />
           </button>
           <button 
             onClick={() => setZoomLevel(1)}
-            className="p-1.5 bg-[#201f1f] hover:bg-[#2a2a2a] rounded-lg border border-white/10"
+            className="p-1.5 bg-slate-100 hover:bg-[#2a2a2a] rounded-lg border border-slate-200"
           >
             <RotateCcw className="w-3.5 h-3.5" />
           </button>
@@ -115,10 +115,10 @@ export default function ElaCanvasInspector({ imageSrc, isAnalyzing }) {
       </div>
 
       {/* CANVAS DISPLAY BOX WITH ANIMATED SCANLINE */}
-      <div className="relative overflow-hidden rounded-xl bg-[#0e0e0e] border border-white/10 flex items-center justify-center min-h-[360px]">
+      <div className="relative overflow-hidden rounded-xl bg-[#0e0e0e] border border-slate-200 flex items-center justify-center min-h-[360px]">
         {/* Animated Scanline Overlay */}
         {isAnalyzing && (
-          <div className="absolute inset-0 z-20 pointer-events-none bg-gradient-to-b from-transparent via-[#00E5FF]/20 to-transparent animate-scanlaser border-b-2 border-[#00E5FF]" />
+          <div className="absolute inset-0 z-20 pointer-events-none bg-gradient-to-b from-transparent via-[#00E5FF]/20 to-transparent animate-scanlaser border-b-2 border-blue-500" />
         )}
 
         <div 
@@ -129,8 +129,8 @@ export default function ElaCanvasInspector({ imageSrc, isAnalyzing }) {
         </div>
 
         {/* Friendly Plain-English Explanation Overlay */}
-        <div className="absolute bottom-3 left-3 right-3 bg-[#131313]/90 backdrop-blur-md p-2.5 rounded-xl border border-white/10 flex items-center justify-between text-xs font-mono">
-          <div className="flex items-center space-x-2 text-gray-300">
+        <div className="absolute bottom-3 left-3 right-3 bg-slate-50/90 backdrop-blur-md p-2.5 rounded-xl border border-slate-200 flex items-center justify-between text-xs font-mono">
+          <div className="flex items-center space-x-2 text-slate-600">
             <span className="w-2 h-2 rounded-full bg-[#97d700] animate-ping"></span>
             <span>
               {activeLayer === 'ela' && "Red/Cyan glowing pixels highlight edited regions."}
@@ -143,7 +143,7 @@ export default function ElaCanvasInspector({ imageSrc, isAnalyzing }) {
           <button
             onMouseEnter={() => setShowTooltip(true)}
             onMouseLeave={() => setShowTooltip(false)}
-            className="text-[#00E5FF] hover:underline flex items-center space-x-1"
+            className="text-blue-600 hover:underline flex items-center space-x-1"
           >
             <HelpCircle className="w-4 h-4" />
             <span>Simple Guide</span>

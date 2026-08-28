@@ -18,20 +18,20 @@ export default function SettingsPage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 pb-16">
       {/* HEADER */}
       <div className="border-b border-[#353534] pb-6">
-        <div className="flex items-center space-x-2 text-xs font-mono text-[#00E5FF] mb-1">
+        <div className="flex items-center space-x-2 text-xs font-mono text-blue-600 mb-1">
           <span className="w-2 h-2 rounded-full bg-[#97d700]"></span>
           <span>ENTERPRISE SECURITY & ALGORITHM PARAMETERS</span>
         </div>
-        <h1 className="text-3xl font-headline font-bold text-white">
+        <h1 className="text-3xl font-headline font-bold text-slate-900">
           Platform Settings & AI Configuration
         </h1>
       </div>
 
       <form onSubmit={handleSave} className="space-y-6">
         {/* ALGORITHM THRESHOLDS */}
-        <div className="bg-[#1c1b1b] p-6 rounded-2xl border border-white/10 space-y-6">
-          <h2 className="text-lg font-headline font-bold text-white flex items-center space-x-2">
-            <Sliders className="w-5 h-5 text-[#97d700]" />
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-6">
+          <h2 className="text-lg font-headline font-bold text-slate-900 flex items-center space-x-2">
+            <Sliders className="w-5 h-5 text-emerald-600" />
             <span>Forensic Algorithm Thresholds</span>
           </h2>
 
@@ -39,8 +39,8 @@ export default function SettingsPage() {
             {/* ELA Slider */}
             <div className="space-y-2">
               <div className="flex justify-between font-mono text-xs">
-                <span className="text-gray-300">ELA Quantization Delta Cutoff</span>
-                <span className="text-[#97d700] font-bold">{elaThreshold} Delta</span>
+                <span className="text-slate-600">ELA Quantization Delta Cutoff</span>
+                <span className="text-emerald-600 font-bold">{elaThreshold} Delta</span>
               </div>
               <input
                 type="range"
@@ -48,7 +48,7 @@ export default function SettingsPage() {
                 max="90"
                 value={elaThreshold}
                 onChange={(e) => setElaThreshold(e.target.value)}
-                className="w-full accent-[#97d700] bg-[#131313] h-2 rounded-lg cursor-pointer"
+                className="w-full accent-[#97d700] bg-slate-50 h-2 rounded-lg cursor-pointer"
               />
               <p className="text-xs text-gray-500 font-mono">
                 Lower values increase sensitivity to faint compression anomalies. Higher values reduce false positives.
@@ -58,8 +58,8 @@ export default function SettingsPage() {
             {/* Font Sensitivity */}
             <div className="space-y-2">
               <div className="flex justify-between font-mono text-xs">
-                <span className="text-gray-300">Font Glyph Vector Variance Cutoff</span>
-                <span className="text-[#00E5FF] font-bold">{fontSensitivity}%</span>
+                <span className="text-slate-600">Font Glyph Vector Variance Cutoff</span>
+                <span className="text-blue-600 font-bold">{fontSensitivity}%</span>
               </div>
               <input
                 type="range"
@@ -67,14 +67,14 @@ export default function SettingsPage() {
                 max="99"
                 value={fontSensitivity}
                 onChange={(e) => setFontSensitivity(e.target.value)}
-                className="w-full accent-[#00E5FF] bg-[#131313] h-2 rounded-lg cursor-pointer"
+                className="w-full accent-[#00E5FF] bg-slate-50 h-2 rounded-lg cursor-pointer"
               />
             </div>
 
             {/* Liveness Threshold */}
             <div className="space-y-2">
               <div className="flex justify-between font-mono text-xs">
-                <span className="text-gray-300">Facial Liveness Spoofing Threshold</span>
+                <span className="text-slate-600">Facial Liveness Spoofing Threshold</span>
                 <span className="text-[#FFAB00] font-bold">{livenessThreshold}%</span>
               </div>
               <input
@@ -83,33 +83,33 @@ export default function SettingsPage() {
                 max="99"
                 value={livenessThreshold}
                 onChange={(e) => setLivenessThreshold(e.target.value)}
-                className="w-full accent-[#FFAB00] bg-[#131313] h-2 rounded-lg cursor-pointer"
+                className="w-full accent-[#FFAB00] bg-slate-50 h-2 rounded-lg cursor-pointer"
               />
             </div>
           </div>
         </div>
 
         {/* API KEYS & INTEGRATION */}
-        <div className="bg-[#1c1b1b] p-6 rounded-2xl border border-white/10 space-y-6">
-          <h2 className="text-lg font-headline font-bold text-white flex items-center space-x-2">
-            <Key className="w-5 h-5 text-[#00E5FF]" />
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-6">
+          <h2 className="text-lg font-headline font-bold text-slate-900 flex items-center space-x-2">
+            <Key className="w-5 h-5 text-blue-600" />
             <span>API Credentials & Webhooks</span>
           </h2>
 
           <div className="space-y-4 text-xs font-mono">
             <div className="space-y-1.5">
-              <label className="text-gray-300 block">Production Secret API Key</label>
+              <label className="text-slate-600 block">Production Secret API Key</label>
               <div className="flex gap-2">
                 <input
                   type="password"
                   value={apiKey}
                   onChange={(e) => setApiKey(e.target.value)}
-                  className="flex-1 bg-[#131313] border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-[#00E5FF]"
+                  className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 focus:outline-none focus:border-blue-500"
                 />
                 <button
                   type="button"
                   onClick={() => setApiKey('vs_live_' + Math.random().toString(36).substring(2, 18))}
-                  className="px-4 py-2.5 bg-[#201f1f] hover:bg-[#2a2a2a] text-gray-300 rounded-xl border border-white/10 transition flex items-center space-x-1"
+                  className="px-4 py-2.5 bg-slate-100 hover:bg-[#2a2a2a] text-slate-600 rounded-xl border border-slate-200 transition flex items-center space-x-1"
                 >
                   <RefreshCw className="w-3.5 h-3.5" />
                   <span>Regenerate</span>
@@ -118,11 +118,11 @@ export default function SettingsPage() {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-gray-300 block">Fraud Alert Webhook URL</label>
+              <label className="text-slate-600 block">Fraud Alert Webhook URL</label>
               <input
                 type="text"
                 defaultValue="https://api.yourcompany.com/v1/compliance/webhooks/fraud-alerts"
-                className="w-full bg-[#131313] border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-[#00E5FF]"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-900 focus:outline-none focus:border-blue-500"
               />
             </div>
           </div>
@@ -131,7 +131,7 @@ export default function SettingsPage() {
         {/* SAVE BUTTON */}
         <div className="flex items-center justify-between pt-4">
           {saved ? (
-            <span className="text-xs font-mono text-[#97d700] flex items-center space-x-1.5 animate-pulse">
+            <span className="text-xs font-mono text-emerald-600 flex items-center space-x-1.5 animate-pulse">
               <CheckCircle2 className="w-4 h-4" />
               <span>SETTINGS SAVED TO ENTERPRISE CLUSTER</span>
             </span>
@@ -141,7 +141,7 @@ export default function SettingsPage() {
 
           <button
             type="submit"
-            className="px-8 py-3.5 bg-gradient-to-r from-[#97d700] to-[#00E5FF] text-black font-headline font-extrabold text-xs tracking-wider rounded-xl shadow-lg hover:scale-105 active:scale-95 transition"
+            className="px-8 py-3.5 bg-gradient-to-r from-emerald-500 to-blue-500 text-black font-headline font-extrabold text-xs tracking-wider rounded-xl shadow-lg hover:scale-105 active:scale-95 transition"
           >
             SAVE CONFIGURATION
           </button>

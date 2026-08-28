@@ -137,40 +137,40 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
       
       {/* GLOBAL NOTIFICATION TOAST */}
       {notificationMessage && (
-        <div className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 bg-[#1c1b1b] border-2 border-[#00E5FF] shadow-[0_0_20px_rgba(0,229,255,0.4)] p-4 rounded-2xl flex items-center space-x-4 animate-bounce-in max-w-2xl w-full">
-          <div className="w-10 h-10 rounded-full bg-[#00E5FF]/20 flex items-center justify-center shrink-0">
-            <ShieldCheck className="w-5 h-5 text-[#00E5FF]" />
+        <div className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 bg-white border-2 border-blue-500 shadow-[0_0_20px_rgba(0,229,255,0.4)] p-4 rounded-2xl flex items-center space-x-4 animate-bounce-in max-w-2xl w-full">
+          <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+            <ShieldCheck className="w-5 h-5 text-blue-600" />
           </div>
           <div className="flex-1">
-            <h4 className="text-white font-headline font-bold text-sm">Real-Time Admin Notification</h4>
-            <p className="text-xs text-[#00E5FF] font-mono mt-1">{notificationMessage}</p>
+            <h4 className="text-slate-900 font-headline font-bold text-sm">Real-Time Admin Notification</h4>
+            <p className="text-xs text-blue-600 font-mono mt-1">{notificationMessage}</p>
           </div>
-          <button onClick={() => setNotificationMessage(null)} className="text-gray-400 hover:text-white">
+          <button onClick={() => setNotificationMessage(null)} className="text-slate-500 hover:text-slate-900">
             <CheckCircle2 className="w-5 h-5" />
           </button>
         </div>
       )}
       
       {/* HERO & TICKET TRACKER BAR */}
-      <div className="bg-[#1c1b1b] p-6 sm:p-8 rounded-3xl border-2.5 border-[#00E5FF]/40 shadow-neo space-y-6">
+      <div className="bg-white p-6 sm:p-8 rounded-3xl border-2.5 border-blue-300 shadow-sm space-y-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-[#131313] border border-[#97d700]/40 rounded-full text-xs font-mono text-[#97d700]">
-              <Sparkles className="w-3.5 h-3.5 text-[#97d700]" />
+            <div className="inline-flex items-center space-x-2 px-3 py-1 bg-slate-50 border border-emerald-300 rounded-full text-xs font-mono text-emerald-600">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
               <span>PUBLIC DOCUMENT INGESTION PORTAL (NO LOGIN REQUIRED)</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-headline font-extrabold text-white">
+            <h1 className="text-3xl sm:text-4xl font-headline font-extrabold text-slate-900">
               Upload Document for AI & Admin Verification
             </h1>
-            <p className="text-xs sm:text-sm text-gray-300 font-body max-w-2xl">
+            <p className="text-xs sm:text-sm text-slate-600 font-body max-w-2xl">
               Upload your PDF/image for automated 6-layer AI evaluation. Your data is stored privately in Supabase and routed to an enterprise admin for 3rd level confirmation.
             </p>
           </div>
 
           {/* Quick Ticket Tracking Widget */}
-          <div className="bg-[#131313] p-4 rounded-2xl border border-white/10 space-y-3 min-w-[280px]">
-            <span className="text-xs font-mono font-bold text-gray-300 flex items-center space-x-1.5">
-              <Search className="w-4 h-4 text-[#00E5FF]" />
+          <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3 min-w-[280px]">
+            <span className="text-xs font-mono font-bold text-slate-600 flex items-center space-x-1.5">
+              <Search className="w-4 h-4 text-blue-600" />
               <span>TRACK YOUR TICKET STATUS</span>
             </span>
 
@@ -180,7 +180,7 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
                 placeholder="e.g. SHER-294810"
                 value={trackIdInput}
                 onChange={(e) => setTrackIdInput(e.target.value)}
-                className="flex-1 bg-[#201f1f] border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder-gray-500 font-mono focus:outline-none focus:border-[#00E5FF]"
+                className="flex-1 bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-900 placeholder-gray-500 font-mono focus:outline-none focus:border-blue-500"
               />
               <button
                 type="submit"
@@ -196,20 +196,20 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
 
         {/* TRACKED TICKET DISPLAY CARD IF SEARCHED */}
         {trackedTicket && (
-          <div className="p-4 bg-[#131313] rounded-2xl border border-[#00E5FF] space-y-2 animate-fade-in text-xs font-mono">
+          <div className="p-4 bg-slate-50 rounded-2xl border border-blue-500 space-y-2 animate-fade-in text-xs font-mono">
             <div className="flex items-center justify-between">
-              <span className="text-white font-bold">Ticket: {trackedTicket.id}</span>
+              <span className="text-slate-900 font-bold">Ticket: {trackedTicket.id}</span>
               <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
                 trackedTicket.status === 'ADMIN_AUDITED' 
-                  ? (trackedTicket.adminConfirmed === 'AUTHENTIC' ? 'bg-[#97d700]/20 text-[#97d700]' : 'bg-red-500/20 text-red-400')
+                  ? (trackedTicket.adminConfirmed === 'AUTHENTIC' ? 'bg-emerald-100 text-emerald-600' : 'bg-red-500/20 text-red-400')
                   : 'bg-yellow-500/20 text-yellow-300'
               }`}>
                 STATUS: {trackedTicket.status} (Admin Verdict: {trackedTicket.adminConfirmed || 'PENDING'})
               </span>
             </div>
-            <p className="text-gray-300 font-body">Document: {trackedTicket.documentName} | Submitted by: {trackedTicket.userName}</p>
+            <p className="text-slate-600 font-body">Document: {trackedTicket.documentName} | Submitted by: {trackedTicket.userName}</p>
             {trackedTicket.adminNotes && (
-              <p className="text-xs text-[#00E5FF] pt-1 border-t border-white/5 font-mono">
+              <p className="text-xs text-blue-600 pt-1 border-t border-slate-100 font-mono">
                 Admin Audit Note: {trackedTicket.adminNotes}
               </p>
             )}
@@ -222,14 +222,14 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
         
         {/* FORM (5 COLS) */}
         <div className="lg:col-span-5 space-y-6">
-          <form onSubmit={handleSubmitUserDocument} className="bg-[#1c1b1b] p-6 rounded-3xl border border-white/10 space-y-5">
-            <h2 className="text-lg font-headline font-bold text-white flex items-center space-x-2">
-              <Upload className="w-5 h-5 text-[#97d700]" />
+          <form onSubmit={handleSubmitUserDocument} className="bg-white p-6 rounded-3xl border border-slate-200 space-y-5">
+            <h2 className="text-lg font-headline font-bold text-slate-900 flex items-center space-x-2">
+              <Upload className="w-5 h-5 text-emerald-600" />
               <span>Step 1: Document Upload</span>
             </h2>
 
             {/* File Drop Area */}
-            <div className="border-2 border-dashed border-[#00E5FF]/40 rounded-2xl p-6 text-center hover:border-[#00E5FF] hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] transition-all duration-300 relative group bg-[#131313] hover:bg-[#1a1a1a]">
+            <div className="border-2 border-dashed border-blue-300 rounded-2xl p-6 text-center hover:border-blue-500 hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] transition-all duration-300 relative group bg-slate-50 hover:bg-[#1a1a1a]">
               <input
                 type="file"
                 accept="image/*,.pdf"
@@ -237,13 +237,13 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
                 className="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10"
                 required
               />
-              <div className="w-12 h-12 rounded-xl bg-[#201f1f] group-hover:bg-[#00E5FF]/20 text-[#97d700] group-hover:text-[#00E5FF] mx-auto flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 mb-3">
+              <div className="w-12 h-12 rounded-xl bg-slate-100 group-hover:bg-blue-100 text-emerald-600 group-hover:text-blue-600 mx-auto flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 mb-3">
                 <FileText className="w-6 h-6" />
               </div>
-              <p className="font-headline font-bold text-white text-sm group-hover:text-[#00E5FF] transition-colors">
+              <p className="font-headline font-bold text-slate-900 text-sm group-hover:text-blue-600 transition-colors">
                 {file ? file.name : "Click to select or drag document here"}
               </p>
-              <p className="text-xs text-gray-400 font-mono mt-1">
+              <p className="text-xs text-slate-500 font-mono mt-1">
                 PDF, JPEG, PNG up to 50 MB
               </p>
             </div>
@@ -251,33 +251,33 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
             {/* User Metadata Fields */}
             <div className="space-y-3 font-mono text-xs">
               <div>
-                <label className="text-gray-300 mb-1 block">YOUR NAME (OPTIONAL):</label>
+                <label className="text-slate-600 mb-1 block">YOUR NAME (OPTIONAL):</label>
                 <input
                   type="text"
                   placeholder="Your Full Name"
                   value={userName}
                   onChange={(e) => setUserName(e.target.value)}
-                  className="w-full bg-[#131313] border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-[#00E5FF]"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-900 focus:outline-none focus:border-blue-500"
                 />
               </div>
 
               <div>
-                <label className="text-gray-300 mb-1 block">YOUR EMAIL (OPTIONAL):</label>
+                <label className="text-slate-600 mb-1 block">YOUR EMAIL (OPTIONAL):</label>
                 <input
                   type="email"
                   placeholder="email@example.com"
                   value={userEmail}
                   onChange={(e) => setUserEmail(e.target.value)}
-                  className="w-full bg-[#131313] border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-[#00E5FF]"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-900 focus:outline-none focus:border-blue-500"
                 />
               </div>
 
               <div>
-                <label className="text-gray-300 mb-1 block">DOCUMENT SECTOR:</label>
+                <label className="text-slate-600 mb-1 block">DOCUMENT SECTOR:</label>
                 <select
                   value={sector}
                   onChange={(e) => setSector(e.target.value)}
-                  className="w-full bg-[#131313] border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-[#00E5FF]"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-900 focus:outline-none focus:border-blue-500"
                 >
                   <option value="Finance">Finance & Bills</option>
                   <option value="KYC">KYC & Passports</option>
@@ -292,7 +292,7 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
             <button
               type="submit"
               disabled={!file || isScanning}
-              className="w-full py-3.5 bg-gradient-to-r from-[#97d700] to-[#00E5FF] text-black font-headline font-extrabold text-xs tracking-wider rounded-xl shadow-neo hover:scale-[1.02] active:scale-95 transition disabled:opacity-50 flex items-center justify-center space-x-2"
+              className="w-full py-3.5 bg-gradient-to-r from-emerald-500 to-blue-500 text-black font-headline font-extrabold text-xs tracking-wider rounded-xl shadow-sm hover:scale-[1.02] active:scale-95 transition disabled:opacity-50 flex items-center justify-center space-x-2"
             >
               {isScanning ? (
                 <>
@@ -314,17 +314,17 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
           
           {/* REAL-TIME PROGRESS PIPELINE */}
           {isScanning && (
-            <div className="bg-[#1c1b1b] p-6 rounded-3xl border border-[#00E5FF]/40 space-y-4 animate-pulse">
-              <h3 className="text-sm font-headline font-bold text-white flex items-center space-x-2">
-                <Cpu className="w-4 h-4 text-[#00E5FF] animate-spin" />
+            <div className="bg-white p-6 rounded-3xl border border-blue-300 space-y-4 animate-pulse">
+              <h3 className="text-sm font-headline font-bold text-slate-900 flex items-center space-x-2">
+                <Cpu className="w-4 h-4 text-blue-600 animate-spin" />
                 <span>Executing 6-Layer Forensic Microservices...</span>
               </h3>
 
               <div className="space-y-2">
                 {completedLayers.map((layer) => (
-                  <div key={layer.id} className="p-2.5 bg-[#131313] rounded-xl border border-white/5 text-xs font-mono flex items-center justify-between text-gray-300">
+                  <div key={layer.id} className="p-2.5 bg-slate-50 rounded-xl border border-slate-100 text-xs font-mono flex items-center justify-between text-slate-600">
                     <span>{layer.name}</span>
-                    <span className="text-[#97d700] font-bold">COMPLETED</span>
+                    <span className="text-emerald-600 font-bold">COMPLETED</span>
                   </div>
                 ))}
               </div>
@@ -333,37 +333,37 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
 
           {/* AI AUTOMATED EVALUATION RESULT */}
           {scanResult ? (
-            <div className="bg-[#1c1b1b] p-6 rounded-3xl border-2.5 border-[#00E5FF] shadow-neo space-y-5 animate-fade-in">
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
+            <div className="bg-white p-6 rounded-3xl border-2.5 border-blue-500 shadow-sm space-y-5 animate-fade-in">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-4">
                 <div className="flex items-center space-x-2">
-                  <Sparkles className="w-5 h-5 text-[#97d700]" />
-                  <h3 className="text-base font-headline font-bold text-white">
+                  <Sparkles className="w-5 h-5 text-emerald-600" />
+                  <h3 className="text-base font-headline font-bold text-slate-900">
                     Step 2: AI Preliminary Evaluation Reply
                   </h3>
                 </div>
 
-                <span className="px-3 py-1 bg-[#131313] border border-[#00E5FF] text-[#00E5FF] rounded-full font-mono text-xs font-bold">
+                <span className="px-3 py-1 bg-slate-50 border border-blue-500 text-blue-600 rounded-full font-mono text-xs font-bold">
                   TICKET: {scanResult.id}
                 </span>
               </div>
 
               {/* AI AUTOMATED REPLY CARD */}
-              <div className="p-4 bg-[#131313] rounded-2xl border border-white/10 space-y-3">
+              <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono text-gray-400">AI DETECTED RISK SCORE:</span>
+                  <span className="text-xs font-mono text-slate-500">AI DETECTED RISK SCORE:</span>
                   <span className={`text-sm font-mono font-bold ${
-                    scanResult.riskScore > 80 ? 'text-red-400' : (scanResult.riskScore > 15 ? 'text-yellow-400' : 'text-[#97d700]')
+                    scanResult.riskScore > 80 ? 'text-red-400' : (scanResult.riskScore > 15 ? 'text-yellow-400' : 'text-emerald-600')
                   }`}>
                     {scanResult.riskScore}%
                   </span>
                 </div>
 
-                <div className="p-3 bg-[#1c1b1b] rounded-xl text-xs font-body text-gray-200 leading-relaxed border border-white/5">
-                  <strong className="text-[#97d700] font-mono block mb-1">🤖 AI Forensic Response:</strong>
+                <div className="p-3 bg-white rounded-xl text-xs font-body text-gray-200 leading-relaxed border border-slate-100">
+                  <strong className="text-emerald-600 font-mono block mb-1">🤖 AI Forensic Response:</strong>
                   {scanResult.verdictDescription}
                 </div>
 
-                <div className="pt-2 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-gray-400">
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500">
                   <span>3rd Level Status:</span>
                   <span className="text-yellow-300 font-bold">
                     PENDING ADMIN CONFIRMATION
@@ -372,9 +372,9 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
               </div>
 
               {/* SAFE PRIVACY NOTICE */}
-              <div className="p-3 bg-[#131313] rounded-xl border border-white/5 text-xs font-mono text-gray-400 flex items-center justify-between">
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 text-xs font-mono text-slate-500 flex items-center justify-between">
                 <span className="flex items-center space-x-1.5">
-                  <Lock className="w-3.5 h-3.5 text-[#97d700]" />
+                  <Lock className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Stored privately in Supabase database</span>
                 </span>
                 <span>Ticket #{scanResult.id}</span>
@@ -382,14 +382,14 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
             </div>
           ) : (
             !isScanning && (
-              <div className="bg-[#1c1b1b] p-8 rounded-3xl border border-white/10 text-center space-y-4">
-                <div className="w-14 h-14 rounded-2xl bg-[#131313] text-[#00E5FF] mx-auto flex items-center justify-center">
+              <div className="bg-white p-8 rounded-3xl border border-slate-200 text-center space-y-4">
+                <div className="w-14 h-14 rounded-2xl bg-slate-50 text-blue-600 mx-auto flex items-center justify-center">
                   <ShieldCheck className="w-8 h-8" />
                 </div>
-                <h3 className="text-lg font-headline font-bold text-white">
+                <h3 className="text-lg font-headline font-bold text-slate-900">
                   Ready for Document Verification
                 </h3>
-                <p className="text-xs text-gray-400 font-body max-w-md mx-auto">
+                <p className="text-xs text-slate-500 font-body max-w-md mx-auto">
                   Upload a document on the left to run our 6-layer forensic suite. No account or login required!
                 </p>
               </div>
@@ -400,13 +400,13 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
       </div>
 
       {/* 6-LAYER ARCHITECTURE EXPLANATION */}
-      <div className="bg-gradient-to-br from-[#1c1b1b] to-[#131313] p-8 rounded-3xl border-2 border-[#97d700]/40 shadow-neo space-y-8 mt-12 mb-12">
+      <div className="bg-gradient-to-br from-white to-slate-50 p-8 rounded-3xl border-2 border-emerald-300 shadow-sm space-y-8 mt-12 mb-12">
         <div className="text-center space-y-2">
-          <h2 className="text-3xl font-headline font-bold text-white flex items-center justify-center space-x-3">
-            <Sparkles className="w-8 h-8 text-[#97d700]" />
+          <h2 className="text-3xl font-headline font-bold text-slate-900 flex items-center justify-center space-x-3">
+            <Sparkles className="w-8 h-8 text-emerald-600" />
             <span>How SherDetect Works</span>
           </h2>
-          <p className="text-sm font-mono text-[#00E5FF]">
+          <p className="text-sm font-mono text-blue-600">
             THE 6-LAYER FORENSIC MULTIMODAL AI PIPELINE
           </p>
         </div>
@@ -417,15 +417,15 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
               num: "Layer 1",
               title: "EXIF & Software Scanner",
               desc: "Scans hidden metadata for footprints of editing software like Photoshop or Canva.",
-              color: "text-[#00E5FF]",
-              bg: "bg-[#00E5FF]/20"
+              color: "text-blue-600",
+              bg: "bg-blue-100"
             },
             {
               num: "Layer 2",
               title: "ELA Pixel Forensics",
               desc: "Error Level Analysis measures JPEG re-compression to highlight spliced or pasted regions.",
-              color: "text-[#97d700]",
-              bg: "bg-[#97d700]/20"
+              color: "text-emerald-600",
+              bg: "bg-emerald-100"
             },
             {
               num: "Layer 3",
@@ -452,18 +452,18 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
               num: "Layer 6",
               title: "Gemini Multimodal AI Audit",
               desc: "Our AI visually reads the document to ensure dates align logically and all financial math is perfectly accurate.",
-              color: "text-white",
+              color: "text-slate-900",
               bg: "bg-white/20"
             }
           ].map((layer, idx) => (
-            <div key={idx} className="bg-[#131313] p-6 rounded-2xl border border-white/10 space-y-3 group hover:-translate-y-2 hover:border-[#00E5FF] hover:shadow-[0_0_25px_rgba(0,229,255,0.2)] transition-all duration-500 ease-out cursor-default relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-1 h-full bg-[#353534] group-hover:bg-[#00E5FF] transition-colors duration-500"></div>
+            <div key={idx} className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3 group hover:-translate-y-2 hover:border-blue-500 hover:shadow-[0_0_25px_rgba(0,229,255,0.2)] transition-all duration-500 ease-out cursor-default relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-1 h-full bg-slate-200 group-hover:bg-[#00E5FF] transition-colors duration-500"></div>
               
               <span className={`px-3 py-1 rounded-full text-xs font-mono font-bold inline-block mb-1 ${layer.bg} ${layer.color} group-hover:scale-110 transition-transform duration-300`}>
                 {layer.num}
               </span>
-              <h3 className="font-headline font-bold text-white text-base mt-2 group-hover:text-[#00E5FF] transition-colors duration-300">{layer.title}</h3>
-              <p className="text-xs text-gray-300 font-body leading-relaxed group-hover:text-white transition-colors duration-300">{layer.desc}</p>
+              <h3 className="font-headline font-bold text-slate-900 text-base mt-2 group-hover:text-blue-600 transition-colors duration-300">{layer.title}</h3>
+              <p className="text-xs text-slate-600 font-body leading-relaxed group-hover:text-slate-900 transition-colors duration-300">{layer.desc}</p>
             </div>
           ))}
         </div>
