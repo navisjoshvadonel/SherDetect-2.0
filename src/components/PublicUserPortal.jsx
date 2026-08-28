@@ -137,7 +137,7 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
       
       {/* GLOBAL NOTIFICATION TOAST */}
       {notificationMessage && (
-        <div className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 bg-white border-2 border-blue-500 shadow-[0_0_20px_rgba(0,229,255,0.4)] p-4 rounded-2xl flex items-center space-x-4 animate-bounce-in max-w-2xl w-full">
+        <div className="fixed top-24 right-8 z-50 bg-white border-2 border-blue-500 shadow-[0_10px_40px_rgba(0,82,204,0.15)] p-4 rounded-2xl flex items-center space-x-4 animate-bounce-in max-w-md w-full">
           <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
             <ShieldCheck className="w-5 h-5 text-blue-600" />
           </div>
