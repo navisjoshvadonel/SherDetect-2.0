@@ -48,6 +48,7 @@ export default {
         'scan-line': 'scan 2.5s ease-in-out infinite',
         'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'cyber-radar': 'radar 4s linear infinite',
+        'marquee': 'marquee 30s linear infinite',
       },
       keyframes: {
         scan: {
@@ -61,6 +62,10 @@ export default {
         radar: {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
         }
       }
     },

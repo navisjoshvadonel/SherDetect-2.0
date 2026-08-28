@@ -410,62 +410,113 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
             THE 6-LAYER FORENSIC MULTIMODAL AI PIPELINE
           </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            {
-              num: "Layer 1",
-              title: "EXIF & Software Scanner",
-              desc: "Scans hidden metadata for footprints of editing software like Photoshop or Canva.",
-              color: "text-blue-600",
-              bg: "bg-blue-100"
-            },
-            {
-              num: "Layer 2",
-              title: "ELA Pixel Forensics",
-              desc: "Error Level Analysis measures JPEG re-compression to highlight spliced or pasted regions.",
-              color: "text-emerald-600",
-              bg: "bg-emerald-100"
-            },
-            {
-              num: "Layer 3",
-              title: "Laplacian Sharpness Anomaly",
-              desc: "Detects font overlays and pasted signatures where edge sharpness doesn't match the background.",
-              color: "text-purple-400",
-              bg: "bg-purple-500/20"
-            },
-            {
-              num: "Layer 4",
-              title: "Benford's Law & PII Sanitizer",
-              desc: "First-digit frequency distribution analysis to spot fabricated numbers and scrub PII.",
-              color: "text-pink-400",
-              bg: "bg-pink-500/20"
-            },
-            {
-              num: "Layer 5",
-              title: "Cryptographic Checksum Audit",
-              desc: "Validates ID numbers and codes using official mathematical algorithms (Verhoeff & Luhn).",
-              color: "text-[#FFAB00]",
-              bg: "bg-[#FFAB00]/20"
-            },
-            {
-              num: "Layer 6",
-              title: "Gemini Multimodal AI Audit",
-              desc: "Our AI visually reads the document to ensure dates align logically and all financial math is perfectly accurate.",
-              color: "text-slate-900",
-              bg: "bg-white/20"
-            }
-          ].map((layer, idx) => (
-            <div key={idx} className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3 group hover:-translate-y-2 hover:border-blue-500 hover:shadow-[0_0_25px_rgba(0,229,255,0.2)] transition-all duration-500 ease-out cursor-default relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-1 h-full bg-slate-200 group-hover:bg-[#00E5FF] transition-colors duration-500"></div>
-              
-              <span className={`px-3 py-1 rounded-full text-xs font-mono font-bold inline-block mb-1 ${layer.bg} ${layer.color} group-hover:scale-110 transition-transform duration-300`}>
-                {layer.num}
-              </span>
-              <h3 className="font-headline font-bold text-slate-900 text-base mt-2 group-hover:text-blue-600 transition-colors duration-300">{layer.title}</h3>
-              <p className="text-xs text-slate-600 font-body leading-relaxed group-hover:text-slate-900 transition-colors duration-300">{layer.desc}</p>
-            </div>
-          ))}
+        
+        {/* Animated Marquee Slideshow Container */}
+        <div className="relative overflow-hidden w-full py-6">
+          {/* Gradient Edges for seamless fade effect */}
+          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
+          
+          <div className="flex w-max animate-custom-marquee space-x-6">
+            {[
+              {
+                num: "Layer 1",
+                title: "EXIF & Software Scanner",
+                desc: "Scans hidden metadata for footprints of editing software like Photoshop or Canva.",
+                color: "text-blue-600",
+                bg: "bg-blue-100"
+              },
+              {
+                num: "Layer 2",
+                title: "ELA Pixel Forensics",
+                desc: "Error Level Analysis measures JPEG re-compression to highlight spliced or pasted regions.",
+                color: "text-emerald-600",
+                bg: "bg-emerald-100"
+              },
+              {
+                num: "Layer 3",
+                title: "Laplacian Sharpness Anomaly",
+                desc: "Detects font overlays and pasted signatures where edge sharpness doesn't match the background.",
+                color: "text-purple-400",
+                bg: "bg-purple-500/20"
+              },
+              {
+                num: "Layer 4",
+                title: "Benford's Law & PII Sanitizer",
+                desc: "First-digit frequency distribution analysis to spot fabricated numbers and scrub PII.",
+                color: "text-pink-400",
+                bg: "bg-pink-500/20"
+              },
+              {
+                num: "Layer 5",
+                title: "Cryptographic Checksum Audit",
+                desc: "Validates ID numbers and codes using official mathematical algorithms (Verhoeff & Luhn).",
+                color: "text-[#FFAB00]",
+                bg: "bg-[#FFAB00]/20"
+              },
+              {
+                num: "Layer 6",
+                title: "Gemini Multimodal AI Audit",
+                desc: "Our AI visually reads the document to ensure dates align logically and all financial math is perfectly accurate.",
+                color: "text-slate-900",
+                bg: "bg-white/20"
+              }
+            ].concat([
+              {
+                num: "Layer 1",
+                title: "EXIF & Software Scanner",
+                desc: "Scans hidden metadata for footprints of editing software like Photoshop or Canva.",
+                color: "text-blue-600",
+                bg: "bg-blue-100"
+              },
+              {
+                num: "Layer 2",
+                title: "ELA Pixel Forensics",
+                desc: "Error Level Analysis measures JPEG re-compression to highlight spliced or pasted regions.",
+                color: "text-emerald-600",
+                bg: "bg-emerald-100"
+              },
+              {
+                num: "Layer 3",
+                title: "Laplacian Sharpness Anomaly",
+                desc: "Detects font overlays and pasted signatures where edge sharpness doesn't match the background.",
+                color: "text-purple-400",
+                bg: "bg-purple-500/20"
+              },
+              {
+                num: "Layer 4",
+                title: "Benford's Law & PII Sanitizer",
+                desc: "First-digit frequency distribution analysis to spot fabricated numbers and scrub PII.",
+                color: "text-pink-400",
+                bg: "bg-pink-500/20"
+              },
+              {
+                num: "Layer 5",
+                title: "Cryptographic Checksum Audit",
+                desc: "Validates ID numbers and codes using official mathematical algorithms (Verhoeff & Luhn).",
+                color: "text-[#FFAB00]",
+                bg: "bg-[#FFAB00]/20"
+              },
+              {
+                num: "Layer 6",
+                title: "Gemini Multimodal AI Audit",
+                desc: "Our AI visually reads the document to ensure dates align logically and all financial math is perfectly accurate.",
+                color: "text-slate-900",
+                bg: "bg-white/20"
+              }
+            ]).map((layer, idx) => (
+              <div key={idx} className="w-[340px] shrink-0 bg-white/60 backdrop-blur-sm p-6 rounded-3xl border border-slate-200 space-y-4 group hover:-translate-y-2 hover:border-[#00E5FF] hover:shadow-[0_10px_30px_rgba(0,229,255,0.15)] transition-all duration-300 ease-out cursor-default relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-slate-50/50 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute top-0 left-0 w-1 h-full bg-slate-200 group-hover:bg-[#00E5FF] transition-colors duration-300 shadow-[0_0_10px_#00E5FF] opacity-0 group-hover:opacity-100"></div>
+                
+                <span className={`px-4 py-1.5 rounded-full text-xs font-mono font-bold inline-block ${layer.bg} ${layer.color} shadow-sm group-hover:scale-105 transition-transform duration-300`}>
+                  {layer.num}
+                </span>
+                <h3 className="font-headline font-bold text-slate-900 text-lg group-hover:text-blue-600 transition-colors duration-300">{layer.title}</h3>
+                <p className="text-sm text-slate-600 font-body leading-relaxed group-hover:text-slate-900 transition-colors duration-300">{layer.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

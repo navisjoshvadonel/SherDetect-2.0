@@ -138,11 +138,16 @@ export default function AdminCommandCenter({ onLogout }) {
           {selectedCase.preview && (
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col items-center mb-4">
               <h4 className="text-xs text-blue-600 font-mono font-bold mb-3 self-start">Document Visual Evidence:</h4>
-              <img 
-                src={selectedCase.preview} 
-                alt="Document Preview" 
-                className="max-h-[500px] max-w-full object-contain rounded-lg border border-slate-100 shadow-xl"
-              />
+              <div className="relative inline-block w-full flex justify-center">
+                <img 
+                  src={selectedCase.preview} 
+                  alt="Document Preview" 
+                  className="max-h-[500px] max-w-full object-contain rounded-lg border border-slate-100 shadow-xl"
+                />
+                <div className={`absolute top-4 right-4 md:right-10 px-3 py-1.5 rounded-lg shadow-lg font-mono font-bold text-sm backdrop-blur-md border ${selectedCase.riskScore > 80 ? 'bg-red-500/90 text-white border-red-400' : (selectedCase.riskScore > 15 ? 'bg-yellow-500/90 text-white border-yellow-400' : 'bg-[#97d700]/90 text-black border-[#97d700]')}`}>
+                  AI SCORE: {selectedCase.riskScore}%
+                </div>
+              </div>
             </div>
           )}
 
@@ -270,12 +275,15 @@ export default function AdminCommandCenter({ onLogout }) {
           </h3>
           
           <div className="flex flex-col md:flex-row gap-8 items-start">
-            <div className="flex-1 w-full flex justify-center bg-black/40 p-4 rounded-xl border border-slate-100">
+            <div className="flex-1 w-full flex justify-center bg-black/40 p-4 rounded-xl border border-slate-100 relative overflow-hidden">
               <img 
                 src={selectedCase.preview} 
                 alt="Document Preview" 
                 className="max-h-[500px] object-contain rounded-lg shadow-sm"
               />
+              <div className={`absolute top-6 right-6 px-4 py-2 rounded-xl shadow-2xl font-headline font-bold text-lg backdrop-blur-md border z-10 ${selectedCase.riskScore > 80 ? 'bg-red-500/90 text-white border-red-400' : (selectedCase.riskScore > 15 ? 'bg-yellow-500/90 text-white border-yellow-400' : 'bg-[#97d700]/90 text-black border-[#97d700]')}`}>
+                AI SCORE: {selectedCase.riskScore}%
+              </div>
             </div>
             
             <div className="w-full md:w-1/3 space-y-6">
