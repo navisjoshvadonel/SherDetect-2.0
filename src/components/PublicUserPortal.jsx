@@ -398,6 +398,77 @@ export default function PublicUserPortal({ onOpenAdminModal, isAdmin }) {
 
         </div>
       </div>
+
+      {/* 6-LAYER ARCHITECTURE EXPLANATION */}
+      <div className="bg-gradient-to-br from-[#1c1b1b] to-[#131313] p-8 rounded-3xl border-2 border-[#97d700]/40 shadow-neo space-y-8 mt-12 mb-12">
+        <div className="text-center space-y-2">
+          <h2 className="text-3xl font-headline font-bold text-white flex items-center justify-center space-x-3">
+            <Sparkles className="w-8 h-8 text-[#97d700]" />
+            <span>How SherDetect Works</span>
+          </h2>
+          <p className="text-sm font-mono text-[#00E5FF]">
+            THE 6-LAYER FORENSIC MULTIMODAL AI PIPELINE
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            {
+              num: "Layer 1",
+              title: "EXIF & Software Scanner",
+              desc: "Scans hidden metadata for footprints of editing software like Photoshop or Canva.",
+              color: "text-[#00E5FF]",
+              bg: "bg-[#00E5FF]/20"
+            },
+            {
+              num: "Layer 2",
+              title: "ELA Pixel Forensics",
+              desc: "Error Level Analysis measures JPEG re-compression to highlight spliced or pasted regions.",
+              color: "text-[#97d700]",
+              bg: "bg-[#97d700]/20"
+            },
+            {
+              num: "Layer 3",
+              title: "Laplacian Sharpness Anomaly",
+              desc: "Detects font overlays and pasted signatures where edge sharpness doesn't match the background.",
+              color: "text-purple-400",
+              bg: "bg-purple-500/20"
+            },
+            {
+              num: "Layer 4",
+              title: "Benford's Law & PII Sanitizer",
+              desc: "First-digit frequency distribution analysis to spot fabricated numbers and scrub PII.",
+              color: "text-pink-400",
+              bg: "bg-pink-500/20"
+            },
+            {
+              num: "Layer 5",
+              title: "Cryptographic Checksum Audit",
+              desc: "Validates ID numbers and codes using official mathematical algorithms (Verhoeff & Luhn).",
+              color: "text-[#FFAB00]",
+              bg: "bg-[#FFAB00]/20"
+            },
+            {
+              num: "Layer 6",
+              title: "Gemini Multimodal AI Audit",
+              desc: "Our AI visually reads the document to ensure dates align logically and all financial math is perfectly accurate.",
+              color: "text-white",
+              bg: "bg-white/20"
+            }
+          ].map((layer, idx) => (
+            <div key={idx} className="bg-[#131313] p-6 rounded-2xl border border-white/10 space-y-3 group hover:-translate-y-2 hover:border-[#00E5FF] hover:shadow-[0_0_25px_rgba(0,229,255,0.2)] transition-all duration-500 ease-out cursor-default relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-1 h-full bg-[#353534] group-hover:bg-[#00E5FF] transition-colors duration-500"></div>
+              
+              <span className={`px-3 py-1 rounded-full text-xs font-mono font-bold inline-block mb-1 ${layer.bg} ${layer.color} group-hover:scale-110 transition-transform duration-300`}>
+                {layer.num}
+              </span>
+              <h3 className="font-headline font-bold text-white text-base mt-2 group-hover:text-[#00E5FF] transition-colors duration-300">{layer.title}</h3>
+              <p className="text-xs text-gray-300 font-body leading-relaxed group-hover:text-white transition-colors duration-300">{layer.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
   );
 }
