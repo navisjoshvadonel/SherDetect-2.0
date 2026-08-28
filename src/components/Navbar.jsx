@@ -13,7 +13,7 @@ export default function Navbar({ activeTab, setActiveTab, isAdmin, onOpenAdminMo
         <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('userPortal')}>
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#97d700] via-[#00E5FF] to-blue-600 p-0.5 shadow-sm">
             <div className="w-full h-full bg-slate-50 rounded-[10px] flex items-center justify-center">
-              <ShieldCheck className="w-6 h-6 text-emerald-600" />
+              <span className="font-headline font-black text-emerald-600 text-lg tracking-tighter">SD</span>
             </div>
           </div>
           <div>
