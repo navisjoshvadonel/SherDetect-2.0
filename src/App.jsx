@@ -83,7 +83,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center space-x-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-            <span>SherDetect 2.0 &copy; 2026. Secured Supabase Forensic Engine.</span>
+            <span>SherDetect 2.0 &copy; 2026. Done by Sherlock Family.</span>
           </div>
           <div className="flex items-center space-x-6 text-slate-400">
             <span className="hover:text-slate-800 transition cursor-pointer" onClick={() => setIsAdminModalOpen(true)}>
