@@ -5,6 +5,7 @@ import LandingPage from './components/LandingPage';
 import DashboardPage from './components/DashboardPage';
 import AdminCommandCenter from './components/AdminCommandCenter';
 import AdminLoginModal from './components/AdminLoginModal';
+import InteractiveBackground from './components/InteractiveBackground';
 import { supabaseService } from './services/supabaseService';
 
 export default function App() {
@@ -37,7 +38,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#131313] text-[#e5e2e1] flex flex-col font-body">
+    <div className="min-h-screen text-slate-900 flex flex-col font-body relative z-0">
+      <InteractiveBackground />
       {/* Brand & Role Navbar */}
       <Navbar 
         activeTab={activeTab} 
@@ -77,18 +79,18 @@ export default function App() {
       />
 
       {/* Footer */}
-      <footer className="bg-[#0e0e0e] border-t border-white/5 py-8 text-xs font-mono text-gray-500">
+      <footer className="bg-slate-100 border-t border-slate-200 py-8 text-xs font-mono text-slate-500 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center space-x-2">
-            <span className="w-2 h-2 rounded-full bg-[#97d700]"></span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
             <span>SherDetect 2.0 &copy; 2026. Secured Supabase Forensic Engine.</span>
           </div>
-          <div className="flex items-center space-x-6 text-gray-400">
-            <span className="hover:text-white transition cursor-pointer" onClick={() => setIsAdminModalOpen(true)}>
+          <div className="flex items-center space-x-6 text-slate-400">
+            <span className="hover:text-slate-800 transition cursor-pointer" onClick={() => setIsAdminModalOpen(true)}>
               Admin Portal 🔒
             </span>
-            <a href="#" className="hover:text-white transition">Supabase Security</a>
-            <a href="#" className="hover:text-white transition">6-Layer Specs</a>
+            <a href="#" className="hover:text-slate-800 transition">Supabase Security</a>
+            <a href="#" className="hover:text-slate-800 transition">6-Layer Specs</a>
           </div>
         </div>
       </footer>
