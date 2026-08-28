@@ -48,18 +48,7 @@ export default function Navbar({ activeTab, setActiveTab, isAdmin, onOpenAdminMo
             </button>
           )}
 
-          {/* 6-Layer Architecture Overview */}
-          <button
-            onClick={() => setActiveTab('landing')}
-            className={`px-3.5 py-2 rounded-lg text-xs font-mono font-bold transition flex items-center space-x-2 whitespace-nowrap ${
-              activeTab === 'landing'
-                ? 'bg-gradient-to-r from-[#97d700] to-[#00E5FF] text-black shadow-neo'
-                : 'text-gray-300 hover:bg-white/5 hover:text-white'
-            }`}
-          >
-            <ShieldCheck className="w-4 h-4" />
-            <span>6-Layer Architecture</span>
-          </button>
+
 
           {/* Secured Admin Command Center (Requires Admin Login) */}
           {isAdmin && (
